@@ -12,10 +12,10 @@ export const encodeText = (text,shiftNumber)=>{
             continue;
         }
         if(isUpperCase(char)){
-            let encodedChar = (char.charCodeAt(0)+shiftNumber-A)%26;
+            let encodedChar = (charCode+shiftNumber-A)%26;
             encodedText+=String.fromCharCode(encodedChar+A)
         }else{
-            let encodedChar = (char.charCodeAt(0)+shiftNumber-a)%26;
+            let encodedChar = (charCode+shiftNumber-a)%26;
             encodedText+=String.fromCharCode(encodedChar+a)
         }
     }
@@ -35,14 +35,14 @@ export const decodeText = (text,shiftNumber)=>{
             continue;
         }
         if(isUpperCase(char)){
-            let decodedChar = (char.charCodeAt(0)-shiftNumber-A)%26;
+            let decodedChar = (charCode-shiftNumber-A)%26;
             if(decodedChar < 0){
                 decodedChar += 26;   
             }
             decodedText+=String.fromCharCode(decodedChar+A)
             
         }else{
-            let decodedChar = (char.charCodeAt(0)-shiftNumber-a)%26;
+            let decodedChar = (charCode-shiftNumber-a)%26;
             if(decodedChar < 0){
                 decodedChar += 26;   
             }
